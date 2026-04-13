@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法文每日筆記 — 2026.04.14</title>
+  <style>
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --red:     #dc2626;
+      --gold:    #d97706;
+      --gold-lt: #fffbeb;
+      --green:   #16a34a;
+      --green-lt:#f0fdf4;
+      --purple:  #7c3aed;
+      --purple-lt:#f5f3ff;
+      --gray:    #6b7280;
+      --border:  #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+    }
+    header .date { font-size: .85rem; opacity: .75; margin-bottom: .3rem; }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header .topic {
+      margin-top: .6rem;
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      font-size: .85rem;
+    }
+
+    /* ── Audio ── */
+    .audio-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      border-radius: 14px;
+      padding: 1.25rem 1.75rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+    .audio-card .audio-icon { font-size: 2rem; flex-shrink: 0; }
+    .audio-card .audio-meta { flex: 1; }
+    .audio-card .audio-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .7;
+      margin-bottom: .2rem;
+    }
+    .audio-card .audio-title { font-weight: 700; font-size: 1rem; margin-bottom: .6rem; }
+    .audio-card audio { width: 100%; height: 36px; border-radius: 8px; accent-color: #60a5fa; }
+    @media (max-width: 520px) { .audio-card { flex-direction: column; align-items: flex-start; } }
+
+    /* ── Card ── */
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue-lt);
+      padding-bottom: .5rem;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* ── Bilingual ── */
+    .bilingual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 600px) { .bilingual { grid-template-columns: 1fr; } }
+
+    .lang-block {
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      font-size: .92rem;
+    }
+    .lang-block.zh { background: #f0f9ff; border-left: 4px solid #38bdf8; }
+    .lang-block.fr { background: #fef9ee; border-left: 4px solid #fbbf24; }
+    .lang-block .lang-label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray);
+      margin-bottom: .5rem;
+    }
+
+    mark.zh  { background: none; color: #0369a1; font-weight: 600; }
+    mark.key { background: none; color: var(--red); font-weight: 600; }
+
+    /* ── Items ── */
+    .item-grid { display: flex; flex-direction: column; gap: 1rem; }
+
+    .item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .item-head {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .65rem 1rem;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .item-body {
+      padding: .65rem 1rem 1rem;
+      font-size: .9rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .num-badge {
+      width: 1.7rem; height: 1.7rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .blue .num-badge { background: var(--blue); color: white; }
+    .blue .item-head { background: var(--blue-lt); color: var(--blue); }
+    .gold .num-badge { background: var(--gold); color: white; }
+    .gold .item-head { background: var(--gold-lt); color: var(--gold); }
+    .purple .num-badge { background: var(--purple); color: white; }
+    .purple .item-head { background: var(--purple-lt); color: var(--purple); }
+
+    .phonetic {
+      font-family: monospace;
+      font-size: .85rem;
+      color: #4b5563;
+      background: #f3f4f6;
+      padding: .2rem .55rem;
+      border-radius: 5px;
+      display: inline-block;
+    }
+    .example { color: var(--red); font-style: italic; }
+    .note { color: #374151; }
+    .synonym { color: var(--green); font-size: .85rem; }
+    .etymology {
+      background: #fafafa;
+      border-left: 3px solid #d1d5db;
+      padding: .4rem .75rem;
+      font-size: .85rem;
+      color: #6b7280;
+      border-radius: 0 6px 6px 0;
+      margin-top: .2rem;
+    }
+
+    /* ── Text review ── */
+    .review-grid {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+    .review-row {
+      border-radius: 10px;
+      padding: .85rem 1rem;
+      font-size: .9rem;
+    }
+    .review-row .review-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: .3rem;
+    }
+    .review-row.intro   { background: #eff6ff; }
+    .review-row.intro .review-label { color: var(--blue); }
+    .review-row.hook    { background: #fff7ed; }
+    .review-row.hook .review-label { color: #c2410c; }
+    .review-row.pref    { background: var(--purple-lt); }
+    .review-row.pref .review-label { color: var(--purple); }
+    .review-row.eval    { background: var(--green-lt); }
+    .review-row.eval .review-label { color: var(--green); }
+    .review-row .fr-phrase { color: var(--red); font-style: italic; font-weight: 600; }
+    .review-row .zh-note  { color: #6b7280; font-size: .85rem; margin-top: .2rem; }
+
+    .eval-list { display: flex; flex-direction: column; gap: .5rem; margin-top: .3rem; }
+    .eval-item { display: flex; gap: .6rem; align-items: flex-start; }
+    .eval-badge {
+      font-size: .7rem;
+      font-weight: 700;
+      padding: .15rem .45rem;
+      border-radius: 99px;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+    .badge-pro  { background: #dcfce7; color: #166534; }
+    .badge-con  { background: #fee2e2; color: #991b1b; }
+    .badge-end  { background: #e0e7ff; color: #3730a3; }
+
+    /* ── Chips ── */
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; }
+    .chip {
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      border: 1px solid #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header>
+    <div class="date">2026 年 4 月 14 日 · 每日法文筆記</div>
+    <h1>今日主題：身體霜評測</h1>
+    <span class="topic">Sol de Janeiro · 美妝護膚 · 產品評測</span>
+  </header>
+
+  <!-- Audio -->
+  <div class="audio-card">
+    <div class="audio-icon">🎧</div>
+    <div class="audio-meta">
+      <div class="audio-label">今日課文音檔 · 地道法語 001</div>
+      <div class="audio-title">地道法语001_20260414</div>
+      <audio controls>
+        <source src="地道法语001_20260414.MP3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Bilingual Text -->
+  <div class="card">
+    <div class="card-title"><span>📖</span> 今日課文</div>
+    <div class="bilingual">
+      <div class="lang-block zh">
+        <div class="lang-label">中文</div>
+        最後，再來說一款<mark class="zh">身體霜</mark>，就是 Sol de Janeiro 家的 Body Boom Boom。它的味道<mark class="zh">特別好聞</mark>。它的味道跟同系列的油聞起來<mark class="zh">一模一樣</mark>，就是質地是霜狀的。<mark class="zh">不過</mark>我個人還是更喜歡油，因為感覺香味更<mark class="zh">淡</mark>一些。<mark class="zh">像平時一樣</mark>，我會把<mark class="zh">兩個搭配著用</mark>，這樣味道能更好地散發出來。這款霜我<mark class="zh">最近用得挺多的</mark>，覺得還挺好用的。不過呢，它不太好<mark class="zh">推開</mark>，需要多花點力氣去塗。但<mark class="zh">保濕效果</mark>還是很好的。
+      </div>
+      <div class="lang-block fr">
+        <div class="lang-label">Français</div>
+        Dernière <mark class="key">crème pour le corps</mark> dont je vous parle, c'est bien sûr la Body Boom Boom de chez Sol de Janeiro qui <mark class="key">sent divinement bon</mark>. C'est exactement la <mark class="key">même odeur que</mark> l'huile mais en version crème. <mark class="key">Bien que</mark> je préfère l'huile parce que je trouve que c'est beaucoup plus <mark class="key">concentré</mark>. <mark class="key">Pareil, comme d'habitude</mark>, je fais le <mark class="key">combo des deux</mark> pour vraiment diffuser. Crème que <mark class="key">j'ai pas mal utilisée</mark> ces derniers temps, Je trouve qu'elle est bien. <mark class="key">Après</mark>, elle est assez <mark class="key">difficile à étaler</mark>. Il faut vraiment <mark class="key">insister</mark>. Mais elle <mark class="key">fait le taf</mark>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Grammar -->
+  <div class="card">
+    <div class="card-title"><span>📐</span> 核心語法點</div>
+    <div class="item-grid">
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          關係代詞 <code>dont</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[dɔ̃]</span>
+          <span class="note">用於引導定語從句，在從句中代替由介詞 <em>de</em> 引導的補語（如 parler de、rêver de、avoir besoin de）。原文中 <em style="color:var(--red)">dont je vous parle</em> 等於 <em>je vous parle de cette crème</em>。</span>
+          <span class="example">C'est le film dont je t'ai parlé hier.（這就是我昨天跟你說起的那部電影。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          關係代詞 <code>que</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[kə]</span>
+          <span class="note">在從句中充當直接賓語（COD）。<em style="color:var(--red)">Crème que j'ai pas mal utilisée</em> 中，que 代指 Crème，是動詞 ai utilisée 的直接賓語。<br>⚠️ 注意：過去分詞 <em>utilisée</em> 需與前置直接賓語（陰性）進行性數配合。</span>
+          <span class="example">La robe que j'ai achetée est magnifique.（我買的那條裙子非常漂亮。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          連詞 <code>Bien que</code> + 虛擬式（subjonctif）
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[bjɛ̃ kə]</span>
+          <span class="note">意為「雖然、儘管」，引導讓步狀語從句。後面<strong>必須</strong>接虛擬式，用來表達主觀或非事實的陳述。</span>
+          <span class="example">Bien qu'il soit fatigué, il continue à travailler.（儘管他很累，他仍然繼續工作。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          無人稱動詞 <code>Il faut</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[il fo]</span>
+          <span class="note">意為「必須、應該、需要」，表達必要性或義務，後面通常接動詞原形。</span>
+          <span class="example">Pour apprendre le français, il faut être patient.（為了學好法語，必須要有耐心。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phrases -->
+  <div class="card">
+    <div class="card-title"><span>💬</span> 短語積累</div>
+    <div class="item-grid">
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          sentir divinement bon
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[sɑ̃tiʁ divinmɑ̃ bɔ̃]</span>
+          <span class="note">盛讚氣味的表達。<em>sentir bon</em> 為固定搭配（聞起來很香），副詞 <em>divinement</em> 比 <em>très</em> 更有力道。</span>
+          <span class="example">Le gâteau sort du four, ça sent divinement bon dans toute la maison.（蛋糕剛從烤箱拿出來，整個房子都香極了。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          de chez
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[də ʃe]</span>
+          <span class="note">用來指明品牌或來源，意為「（某品牌）家的」。</span>
+          <span class="example">J'adore les croissants de chez ce boulanger.（我超愛這家麵包店的牛角包。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          comme d'habitude
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[kɔm dabityd]</span>
+          <span class="note">意為「像往常一樣、照例」。</span>
+          <span class="example">Il est arrivé en retard, comme d'habitude.（他遲到了，像往常一樣。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          pas mal
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[pa mal]</span>
+          <span class="note">口語中非常靈活。放在動詞後意為「相當多、不少」（j'ai pas mal utilisée）；單獨使用則表示「還不錯」。</span>
+          <span class="example">Il y a pas mal de monde au cinéma ce soir.（今晚電影院裡人相當多。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">5</span>
+          difficile à + 動詞原形
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[difisil a]</span>
+          <span class="note">固定結構，表示「做某事很困難」。</span>
+          <span class="example">Cette question est difficile à répondre.（這個問題很難回答。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">6</span>
+          faire le taf
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[fɛʁ lə taf]</span>
+          <span class="note">口語俚語。<em>taf</em> 是 <em>travail</em> 的通俗說法，整句意為「管用、能完成任務」——雖不完美但起到了應有的作用。</span>
+          <span class="example">Mon ordinateur est vieux, mais pour écrire des emails, il fait le taf.（我電腦很老了，但用來寫郵件還是管用的。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vocabulary deep dive -->
+  <div class="card">
+    <div class="card-title"><span>📚</span> 詞彙深挖</div>
+    <div class="item-grid">
+
+      <div class="item purple">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          divinement &nbsp;<span style="font-weight:400;font-size:.85rem">adv. 絕妙地、極好地</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[divinmɑ̃]</span>
+          <span class="synonym">近義詞：merveilleusement · parfaitement</span>
+          <span class="example">Cette tarte au citron est divinement bonne.（這個檸檬塔真的好吃極了。）</span>
+          <div class="etymology">詞根來自拉丁語 <em>divinus</em>（神的），源自 <em>deus</em>（神）。核心意象是「以神的方式」，後引申為「極好地、絕妙地」。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          concentré &nbsp;<span style="font-weight:400;font-size:.85rem">adj. 濃縮的、專注的</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[kɔ̃sɑ̃tʁe]</span>
+          <span class="synonym">近義詞：dense · intense</span>
+          <span class="example">Pour le petit-déjeuner, je bois du jus d'orange non concentré.（早餐我喝非濃縮橙汁。）</span>
+          <div class="etymology">來自拉丁語 <em>con-</em>（共同）+ <em>centrum</em>（中心）：把所有東西都帶到一個中心點。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          habitude &nbsp;<span style="font-weight:400;font-size:.85rem">n.f. 習慣</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[abityd]</span>
+          <span style="color:#e57373;font-size:.82rem">⚠️ 詞首 h 不發音</span>
+          <span class="synonym">近義詞：coutume · routine</span>
+          <span class="example">Lire avant de dormir est une excellente habitude.（睡前閱讀是一個極好的習慣。）</span>
+          <div class="etymology">源自拉丁語動詞 <em>habere</em>（擁有、持有）——習慣就是你長期「擁有」的一種行為模式。英語的 <em>habit</em> 完全同源。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          utilisée &nbsp;<span style="font-weight:400;font-size:.85rem">p.p. 被使用的（陰性）</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ytilize]</span>
+          <span class="synonym">近義詞：employée · appliquée</span>
+          <span class="example">La voiture utilisée dans le film est une voiture de collection.（電影中使用的那輛車是一輛古董車。）</span>
+          <div class="etymology">動詞 <em>utiliser</em> 詞根是拉丁語 <em>uti</em>（用），字面意思是「使……變得有用」。英語的 <em>use</em> 和 <em>utility</em> 都來源於此。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head">
+          <span class="num-badge">5</span>
+          insister &nbsp;<span style="font-weight:400;font-size:.85rem">v. 堅持／強調／下力氣</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ɛ̃siste]</span>
+          <span class="synonym">近義詞：persister · souligner · s'obstiner</span>
+          <div style="display:flex;flex-direction:column;gap:.25rem;margin-top:.1rem">
+            <span class="example">Le médecin a insisté sur l'importance de bien dormir.（醫生強調了好好睡覺的重要性。）</span>
+            <span class="example">La serrure était vieille, il a fallu insister pour tourner la clé.（鎖很舊，需要多花點力氣才能轉動鑰匙。）</span>
+          </div>
+          <div class="etymology">來自拉丁語 <em>in-</em>（在……之上）+ <em>sistere</em>（站立）：「固定站在某個立場之上不移動」。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Text Review -->
+  <div class="card">
+    <div class="card-title"><span>🗺️</span> 文本結構回顧</div>
+    <div class="review-grid">
+
+      <div class="review-row intro">
+        <div class="review-label">引出主題</div>
+        <span class="fr-phrase">Dernière crème...</span>
+        <div class="zh-note">開門見山，告知觀眾這是評測的最後一個產品。</div>
+      </div>
+
+      <div class="review-row hook">
+        <div class="review-label">核心亮點</div>
+        <span class="fr-phrase">...sent divinement bon.</span>
+        <div class="zh-note">立刻拋出產品最吸引人的優點（氣味），並與同系列產品進行比較，建立參照系。</div>
+      </div>
+
+      <div class="review-row pref">
+        <div class="review-label">個人偏好與獨家技巧</div>
+        <span class="fr-phrase">Bien que je préfère l'huile... je fais le combo...</span>
+        <div class="zh-note">表達個人更細微的偏好（更喜歡油），並分享使用技巧（疊塗），增加評測真實性與實用價值。</div>
+      </div>
+
+      <div class="review-row eval">
+        <div class="review-label">綜合評價：優點 / 缺點 / 結論</div>
+        <div class="eval-list">
+          <div class="eval-item">
+            <span class="eval-badge badge-pro">優點</span>
+            <div>
+              <span class="fr-phrase">j'ai pas mal utilisée...</span>
+              <div class="zh-note">表明深度使用過，有發言權。</div>
+            </div>
+          </div>
+          <div class="eval-item">
+            <span class="eval-badge badge-con">缺點</span>
+            <div>
+              <span class="fr-phrase">elle est assez difficile à étaler.</span>
+              <div class="zh-note">客觀提出缺點：不好推開。</div>
+            </div>
+          </div>
+          <div class="eval-item">
+            <span class="eval-badge badge-end">結論</span>
+            <div>
+              <span class="fr-phrase">Mais elle fait le taf.</span>
+              <div class="zh-note">雖有瑕疵，但核心功能達標，值得肯定。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick ref -->
+  <div class="card">
+    <div class="card-title"><span>⚡</span> 今日關鍵詞速查</div>
+    <div class="chips">
+      <span class="chip">dont（關係代詞）</span>
+      <span class="chip">que（關係代詞）</span>
+      <span class="chip">Bien que + subjonctif</span>
+      <span class="chip">Il faut</span>
+      <span class="chip">sentir divinement bon</span>
+      <span class="chip">de chez</span>
+      <span class="chip">comme d'habitude</span>
+      <span class="chip">pas mal</span>
+      <span class="chip">difficile à + inf.</span>
+      <span class="chip">faire le taf</span>
+      <span class="chip">divinement</span>
+      <span class="chip">insister</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
