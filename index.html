@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法文每日筆記 — 總覽</title>
+  <style>
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --border:  #e5e7eb;
+      --gray:    #6b7280;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 2rem 2.25rem;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: .4rem; }
+    header p  { opacity: .75; font-size: .9rem; }
+
+    .stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.1rem;
+    }
+    .stat-box {
+      background: rgba(255,255,255,.15);
+      border-radius: 10px;
+      padding: .55rem 1rem;
+      text-align: center;
+    }
+    .stat-box .num  { font-size: 1.4rem; font-weight: 800; }
+    .stat-box .lbl  { font-size: .72rem; opacity: .75; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ── Month section ── */
+    .month-section { display: flex; flex-direction: column; gap: .75rem; }
+    .month-label {
+      font-size: .8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--gray);
+      padding-left: .25rem;
+    }
+
+    /* ── Entry card ── */
+    .entry {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .15s, transform .15s;
+    }
+    .entry:hover {
+      box-shadow: 0 4px 12px rgba(37,99,235,.15);
+      transform: translateY(-1px);
+    }
+
+    .entry-date {
+      background: var(--blue-lt);
+      color: var(--blue);
+      border-radius: 10px;
+      padding: .5rem .75rem;
+      text-align: center;
+      min-width: 3.2rem;
+      flex-shrink: 0;
+    }
+    .entry-date .day   { font-size: 1.4rem; font-weight: 800; line-height: 1; }
+    .entry-date .month { font-size: .65rem; text-transform: uppercase; letter-spacing: .05em; opacity: .7; }
+
+    .entry-body { flex: 1; }
+    .entry-body .title { font-weight: 700; font-size: .97rem; margin-bottom: .2rem; }
+    .entry-body .tags  { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .tag {
+      font-size: .72rem;
+      padding: .15rem .55rem;
+      border-radius: 99px;
+      background: #f3f4f6;
+      color: var(--gray);
+      border: 1px solid var(--border);
+    }
+    .tag.grammar { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+    .tag.audio   { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+
+    .entry-arrow {
+      color: #d1d5db;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── Empty state ── */
+    .empty {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: .9rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>法文每日筆記</h1>
+    <p>每日課程整理 · 語法 · 詞彙 · 口語模板 · 音檔</p>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="num">1</div>
+        <div class="lbl">已完成天數</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">4</div>
+        <div class="lbl">語法點</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">6</div>
+        <div class="lbl">實用短語</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">4</div>
+        <div class="lbl">口語模板</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2026 年 4 月 -->
+  <div class="month-section">
+    <div class="month-label">2026 年 4 月</div>
+
+    <a class="entry" href="2026-04-13.html">
+      <div class="entry-date">
+        <div class="day">13</div>
+        <div class="month">Apr</div>
+      </div>
+      <div class="entry-body">
+        <div class="title">用剩菜解決晚餐 · Les restes du frigo</div>
+        <div class="tags">
+          <span class="tag grammar">futur proche</span>
+          <span class="tag grammar">plus-que-parfait</span>
+          <span class="tag grammar">gérondif</span>
+          <span class="tag">des restes · se régaler</span>
+          <span class="tag audio">🎧 音檔</span>
+        </div>
+      </div>
+      <div class="entry-arrow">›</div>
+    </a>
+
+  </div>
+
+  <!-- 之後的條目會依序新增在這裡 -->
+
+</div>
+</body>
+</html>

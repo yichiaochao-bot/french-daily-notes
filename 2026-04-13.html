@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法文每日筆記 — 2026.04.13</title>
+  <style>
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --red:     #dc2626;
+      --red-lt:  #fff1f2;
+      --gold:    #d97706;
+      --gold-lt: #fffbeb;
+      --green:   #16a34a;
+      --green-lt:#f0fdf4;
+      --gray:    #6b7280;
+      --gray-lt: #f9fafb;
+      --border:  #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+    }
+    header .date { font-size: .85rem; opacity: .75; margin-bottom: .3rem; }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header .topic {
+      margin-top: .6rem;
+      display: inline-block;
+      background: rgba(255,255,255,.2);
+      padding: .25rem .75rem;
+      border-radius: 99px;
+      font-size: .85rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue-lt);
+      padding-bottom: .5rem;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .card-title .icon { font-size: 1.1rem; }
+
+    /* ── Bilingual text ── */
+    .bilingual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    @media (max-width: 600px) { .bilingual { grid-template-columns: 1fr; } }
+
+    .lang-block {
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      font-size: .92rem;
+    }
+    .lang-block.zh { background: #f0f9ff; border-left: 4px solid #38bdf8; }
+    .lang-block.fr { background: #fef9ee; border-left: 4px solid #fbbf24; }
+    .lang-block .lang-label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--gray);
+      margin-bottom: .5rem;
+    }
+
+    mark.zh  { background: none; color: #0369a1; font-weight: 600; }
+    mark.fr  { background: none; color: #b45309; font-weight: 600; }
+    mark.key { background: none; color: var(--red); font-weight: 600; }
+
+    /* ── Grammar / Vocab items ── */
+    .item-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .item {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .item-head {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      padding: .65rem 1rem;
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .item-body {
+      padding: .65rem 1rem 1rem;
+      font-size: .9rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .num-badge {
+      width: 1.7rem; height: 1.7rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .blue  .num-badge { background: var(--blue);  color: white; }
+    .blue  .item-head { background: var(--blue-lt); color: var(--blue); }
+    .gold  .num-badge { background: var(--gold);  color: white; }
+    .gold  .item-head { background: var(--gold-lt); color: var(--gold); }
+
+    .phonetic {
+      font-family: monospace;
+      font-size: .85rem;
+      color: #4b5563;
+      background: #f3f4f6;
+      padding: .2rem .55rem;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .example {
+      color: var(--red);
+      font-style: italic;
+    }
+
+    .note {
+      color: #374151;
+    }
+
+    .formula-block {
+      background: #fafafa;
+      border: 1px dashed #d1d5db;
+      border-radius: 8px;
+      padding: .6rem 1rem;
+      font-size: .88rem;
+      margin-top: .3rem;
+    }
+    .formula-block .formula {
+      color: var(--blue);
+      font-weight: 700;
+      font-size: .95rem;
+    }
+    .formula-block .formula-ex {
+      color: var(--red);
+      font-style: italic;
+      margin-top: .2rem;
+    }
+    .formula-block .apply {
+      color: var(--green);
+      margin-top: .4rem;
+      font-size: .85rem;
+    }
+
+    /* ── Templates ── */
+    .tpl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) { .tpl-grid { grid-template-columns: 1fr; } }
+
+    .tpl-card {
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      font-size: .88rem;
+    }
+    .tpl-card h3 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .6rem;
+    }
+    .tpl-step { margin-bottom: .5rem; }
+    .tpl-step .step-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--gray);
+      margin-bottom: .15rem;
+    }
+    .tpl-card.t1 { background: #eff6ff; }
+    .tpl-card.t1 h3 { color: #1d4ed8; }
+    .tpl-card.t2 { background: #fdf4ff; }
+    .tpl-card.t2 h3 { color: #7e22ce; }
+    .tpl-card.t3 { background: #f0fdf4; }
+    .tpl-card.t3 h3 { color: #15803d; }
+    .tpl-card.t4 { background: #fff7ed; }
+    .tpl-card.t4 h3 { color: #c2410c; }
+
+    .tpl-card .fr-text { color: var(--red); font-style: italic; }
+    .tpl-card .zh-text { color: #6b7280; font-size: .82rem; }
+    .tpl-card .blank   { color: #1e40af; font-weight: 600; }
+
+    /* ── Audio player ── */
+    .audio-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      border-radius: 14px;
+      padding: 1.25rem 1.75rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+    .audio-card .audio-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    .audio-card .audio-meta { flex: 1; }
+    .audio-card .audio-label {
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      opacity: .7;
+      margin-bottom: .2rem;
+    }
+    .audio-card .audio-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .6rem;
+    }
+    .audio-card audio {
+      width: 100%;
+      height: 36px;
+      border-radius: 8px;
+      accent-color: #60a5fa;
+    }
+    @media (max-width: 520px) {
+      .audio-card { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── Quick-ref chips ── */
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; }
+    .chip {
+      background: var(--blue-lt);
+      color: var(--blue);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 99px;
+      border: 1px solid #bfdbfe;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header>
+    <div class="date">2026 年 4 月 13 日 · 每日法文筆記</div>
+    <h1>今日主題：用剩菜解決晚餐</h1>
+    <span class="topic">Les restes du frigo · 日常生活 · 飲食</span>
+  </header>
+
+  <!-- Audio Player -->
+  <div class="audio-card">
+    <div class="audio-icon">🎧</div>
+    <div class="audio-meta">
+      <div class="audio-label">今日課文音檔 · 地道法語 001</div>
+      <div class="audio-title">地道法语001_20260413</div>
+      <audio controls>
+        <source src="地道法语001_20260413.MP3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Bilingual Text -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📖</span> 今日課文</div>
+    <div class="bilingual">
+      <div class="lang-block zh">
+        <div class="lang-label">中文</div>
+        天黑了，該<mark class="zh">準備晚飯</mark>了。其實也談不上準備晚飯。說實話，我不會騙你們，<mark class="zh">假裝</mark>自己要做一桌大餐，因為冰箱裡其實還有<mark class="zh">剩菜</mark>。我昨天按一個泰式炒麵的<mark class="zh">菜譜</mark>做過飯。今晚就吃這個了。給你們看看。就是這個麵，裡面有胡蘿蔔、花生、薄荷、香菜、小蔥，還有醬油和檸檬汁。我要<mark class="zh">開動啦</mark>！配餐呢，就是一個香草味的酸奶和一個蘋果。我的晚餐差不多就是這些了。<mark class="zh">總的來說</mark>，我晚餐喜歡吃點熱乎的、清淡、不太<mark class="zh">厚重</mark>的東西。在秋冬季節，我經常做很多<mark class="zh">湯</mark>，比如南瓜湯、韭蔥土豆湯……我超愛喝湯的。不過今天沒什麼能做湯的食材了，所以我就<mark class="zh">乾脆</mark>把冰箱裡的剩菜解決掉。我準備邊吃邊在電腦上看會兒劇。
+      </div>
+      <div class="lang-block fr">
+        <div class="lang-label">Français</div>
+        Fin de journée, c'est le moment de <mark class="key">préparer</mark> le dîner. Enfin, <mark class="key">pas vraiment</mark> préparer, je ne vais pas vous mentir et <mark class="key">faire semblant de</mark> cuisiner plein de plats parce qu'en réalité j'ai des <mark class="key">restes</mark> dans le frigo. J'<mark class="key">avais cuisiné</mark> hier une <mark class="key">recette</mark> de nouilles thaïlandaises. Et je vais manger ça. Je vous montre. Ce sont des nouilles avec des carottes, des cacahuètes, de la menthe, de la coriandre, de l'oignon nouveau, de la sauce soja et du citron. Je vais me <mark class="key">régaler</mark>. Avec ça, il y aura un yaourt à la vanille, une pomme. Et c'est <mark class="key">à peu près</mark> tout pour mon repas du soir. En <mark class="key">général</mark>, j'aime bien manger assez chaud, légers, des choses pas trop <mark class="key">lourdes</mark>. En automne et en hiver je fais beaucoup de <mark class="key">soupes</mark>. Mais là j'avais rien pour faire une soupe donc je vais finir ce qu'il y a dans mon frigo <mark class="key">tout simplement</mark>. Et je vais manger tout ça en <mark class="key">regardant</mark> une petite série sur mon ordinateur.
+      </div>
+    </div>
+  </div>
+
+  <!-- Grammar -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📐</span> 重要語法點</div>
+    <div class="item-grid">
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          Le futur proche &nbsp;<span style="font-weight:400;font-size:.85rem">最近將來時</span>&nbsp;：&nbsp;<code>aller + 動詞原形</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ʒə vɛ mɔ̃ʒe sa]</span>
+          <span class="example">Je vais manger ça.</span>
+          <span class="note">口語中表達「將要做某事」最常用的時態，表示一個近期或已計劃好的未來動作。文中 <em>je ne vais pas vous mentir</em>、<em>je vais finir ce qu'il y a</em> 都使用了這個結構。</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          L'expression：&nbsp;<code>C'est le moment de + 動詞原形</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[sɛ lə mɔmɑ̃ də pʁepaʁe la dine]</span>
+          <span class="example">C'est le moment de préparer le dîner.</span>
+          <span class="note">用來表示「是時候做某事了」。可以用來談論任何日程安排，比如：<em style="color:var(--red)">C'est le moment de partir.</em>（該走了。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          Le plus-que-parfait &nbsp;<span style="font-weight:400;font-size:.85rem">愈過去時</span>&nbsp;：&nbsp;<code>avoir/être (imparfait) + 過去分詞</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ʒavɛ kɥizine ʒɛʁ yn ʁəsɛt]</span>
+          <span class="example">J'avais cuisiné hier une recette...</span>
+          <span class="note">描述「過去某時間點之前」發生的動作，即「過去的過去」。例句中「烹飪」這個動作發生在講述這一刻之前，也發生在「昨晚」這個過去的背景之前。</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          Le gérondif &nbsp;<span style="font-weight:400;font-size:.85rem">副動詞</span>&nbsp;：&nbsp;<code>en + V-ant</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ɑ̃ ʁəɡaʁdɑ̃ yn pətit seʁi syʁ mɔ̃ ɔʁdinatœʁ]</span>
+          <span class="example">...en regardant une petite série sur mon ordinateur.</span>
+          <span class="note">相當於中文「一邊……一邊……」，用來描述與主句動詞同時發生的動作。比如：<em style="color:var(--red)">J'écoute de la musique en faisant mes devoirs.</em>（我一邊做作業一邊聽音樂。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vocabulary -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📚</span> 高頻實用短語</div>
+    <div class="item-grid">
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          des restes &nbsp;<span style="font-weight:400">(n.m.pl.)</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[de ʁɛst]</span>
+          <span class="note">剩菜、剩飯。日常生活中使用頻率極高。</span>
+          <span class="example">On finit les restes de hier soir ?（我們把昨晚的剩飯吃完吧？）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          se régaler &nbsp;<span style="font-weight:400">(v.pr.)</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[sə ʁeɡale]</span>
+          <span class="note">享受美食、大飽口福。當你要吃東西並感到很期待時就可以說。</span>
+          <span class="example">Je vais me régaler !（我要好好享受這頓美餐！）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          faire semblant de + 動詞原形
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[fɛʁ sɑ̃blɑ̃ də]</span>
+          <span class="note">假裝做某事。</span>
+          <span class="example">Il fait semblant de dormir.（他假裝在睡覺。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          à peu près &nbsp;<span style="font-weight:400">(adv.)</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[a pø pʁɛ]</span>
+          <span class="note">差不多、大約。相當於英語 "more or less" 或 "about"。</span>
+          <span class="example">Il est à peu près 18 heures.（差不多晚上 6 點了。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">5</span>
+          pas vraiment &nbsp;<span style="font-weight:400">(adv.)</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[pa vʁɛmɑ̃]</span>
+          <span class="note">不完全是、其實不是。用於委婉地糾正或否定前面的話。</span>
+          <span class="example">Enfin, pas vraiment préparer...（呃，其實也算不上準備……）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head">
+          <span class="num-badge">6</span>
+          tout simplement &nbsp;<span style="font-weight:400">(adv.)</span>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[tu sɛ̃pləmɑ̃]</span>
+          <span class="note">就這麼簡單、直接就是。用來強調情事的簡單性或直接性。</span>
+          <span class="example">Je vais finir ce qu'il y a dans mon frigo tout simplement.（我就把冰箱裡的東西吃完而已。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <div class="card">
+    <div class="card-title"><span class="icon">🗣️</span> 口語表達模板</div>
+    <div class="tpl-grid">
+
+      <div class="tpl-card t1">
+        <h3>模板一：坦誠地開場，拉近距離</h3>
+        <div class="tpl-step">
+          <div class="step-label">Step 1 — 先說一個「標準句式」</div>
+          <div class="fr-text">C'est le moment de <span class="blank">[動詞原形]</span>.</div>
+        </div>
+        <div class="tpl-step">
+          <div class="step-label">Step 2 — 用 Enfin, pas vraiment... 自我糾正</div>
+          <div class="fr-text">Enfin, pas vraiment <span class="blank">[重複動詞]</span>... parce qu'en réalité <span class="blank">[真實情況]</span>.</div>
+        </div>
+        <div class="fr-text" style="margin-top:.5rem;font-size:.82rem">
+          C'est le moment d'étudier. Enfin, pas vraiment étudier, parce qu'en réalité je vais juste relire mes notes.
+        </div>
+        <div class="zh-text">（該學習了。呃，其實也算不上學習，因為我只是想把筆記再看一遍。）</div>
+      </div>
+
+      <div class="tpl-card t2">
+        <h3>模板二：生動地展示細節，化平凡為有趣</h3>
+        <div class="tpl-step">
+          <div class="step-label">Step 1 — 製造懸念</div>
+          <div class="fr-text">Et je vais <span class="blank">[動詞]</span> ça. Je vous montre.</div>
+        </div>
+        <div class="tpl-step">
+          <div class="step-label">Step 2 — 詳細列所有組成部分</div>
+          <div class="fr-text">Ce sont des <span class="blank">[主要物品]</span> avec <span class="blank">[配料1]</span>, <span class="blank">[配料2]</span>...</div>
+        </div>
+        <div class="fr-text" style="margin-top:.5rem;font-size:.82rem">
+          Aujourd'hui, je porte ça. Je vous montre. C'est un jean bleu, avec un t-shirt blanc tout simple et des baskets.
+        </div>
+        <div class="zh-text">（今天我穿這個，給你們看看。就是一條藍色牛仔褲，配一件很簡單的白T恤和運動鞋。）</div>
+      </div>
+
+      <div class="tpl-card t3">
+        <h3>模板三：有層次地說明「習慣與例外」</h3>
+        <div class="tpl-step">
+          <div class="step-label">Step 1 — 說明常規習慣</div>
+          <div class="fr-text">En général, j'aime bien <span class="blank">[你的習慣]</span>.</div>
+        </div>
+        <div class="tpl-step">
+          <div class="step-label">Step 2 — 轉折到當前情況</div>
+          <div class="fr-text">Mais là <span class="blank">[當前特殊情況]</span>, donc <span class="blank">[因此做的決定]</span>.</div>
+        </div>
+        <div class="fr-text" style="margin-top:.5rem;font-size:.82rem">
+          En général, j'aime bien aller à la salle de sport le matin. Mais là je suis un peu fatigué, donc je vais juste faire une promenade.
+        </div>
+        <div class="zh-text">（總的來說，我喜歡早上健身。但今天有點累，所以我就散散步好了。）</div>
+      </div>
+
+      <div class="tpl-card t4">
+        <h3>模板四：場景化地收尾，引發共鳴</h3>
+        <div class="tpl-step">
+          <div class="step-label">Step 1 — 總結核心動作</div>
+          <div class="fr-text">Et je vais <span class="blank">[動詞]</span> tout ça...</div>
+        </div>
+        <div class="tpl-step">
+          <div class="step-label">Step 2 — 用副動詞補充背景活動</div>
+          <div class="fr-text">...en <span class="blank">[動詞現在分詞]</span> <span class="blank">[另一件事]</span>.</div>
+        </div>
+        <div class="fr-text" style="margin-top:.5rem;font-size:.82rem">
+          Bon, je vais faire le ménage, en écoutant de la musique pour me motiver.
+        </div>
+        <div class="zh-text">（好了，我要打掃衛生了，邊聽音樂來激勵自己。）</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick-ref -->
+  <div class="card">
+    <div class="card-title"><span class="icon">⚡</span> 今日關鍵詞速查</div>
+    <div class="chips">
+      <span class="chip">des restes</span>
+      <span class="chip">se régaler</span>
+      <span class="chip">faire semblant de</span>
+      <span class="chip">à peu près</span>
+      <span class="chip">pas vraiment</span>
+      <span class="chip">tout simplement</span>
+      <span class="chip">le futur proche</span>
+      <span class="chip">C'est le moment de</span>
+      <span class="chip">le plus-que-parfait</span>
+      <span class="chip">le gérondif (en + V-ant)</span>
+      <span class="chip">En général...</span>
+      <span class="chip">Mais là...</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
