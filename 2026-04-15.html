@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法文每日筆記 — 2026.04.15</title>
+  <style>
+    :root {
+      --blue:    #2563eb;
+      --blue-lt: #eff6ff;
+      --red:     #dc2626;
+      --gold:    #d97706;
+      --gold-lt: #fffbeb;
+      --green:   #16a34a;
+      --green-lt:#f0fdf4;
+      --purple:  #7c3aed;
+      --purple-lt:#f5f3ff;
+      --teal:    #0d9488;
+      --teal-lt: #f0fdfa;
+      --gray:    #6b7280;
+      --border:  #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Segoe UI", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+      line-height: 1.7;
+      padding: 2rem 1rem;
+    }
+
+    .page { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem; }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white; border-radius: 16px; padding: 1.8rem 2rem;
+    }
+    header .date { font-size: .85rem; opacity: .75; margin-bottom: .3rem; }
+    header h1 { font-size: 1.5rem; font-weight: 700; }
+    header .topic {
+      margin-top: .6rem; display: inline-block;
+      background: rgba(255,255,255,.2); padding: .25rem .75rem;
+      border-radius: 99px; font-size: .85rem;
+    }
+
+    /* Audio */
+    .audio-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      border-radius: 14px; padding: 1.25rem 1.75rem; color: white;
+      display: flex; align-items: center; gap: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+    .audio-icon { font-size: 2rem; flex-shrink: 0; }
+    .audio-meta { flex: 1; }
+    .audio-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; opacity: .7; margin-bottom: .2rem; }
+    .audio-title { font-weight: 700; font-size: 1rem; margin-bottom: .6rem; }
+    .audio-card audio { width: 100%; height: 36px; border-radius: 8px; accent-color: #60a5fa; }
+    @media (max-width: 520px) { .audio-card { flex-direction: column; align-items: flex-start; } }
+
+    /* Card */
+    .card { background: white; border-radius: 14px; padding: 1.5rem 1.75rem; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .card-title {
+      font-size: 1rem; font-weight: 700; color: var(--blue);
+      border-bottom: 2px solid var(--blue-lt); padding-bottom: .5rem;
+      margin-bottom: 1.1rem; display: flex; align-items: center; gap: .5rem;
+    }
+
+    /* Bilingual */
+    .bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    @media (max-width: 600px) { .bilingual { grid-template-columns: 1fr; } }
+    .lang-block { border-radius: 10px; padding: 1rem 1.1rem; font-size: .92rem; }
+    .lang-block.zh { background: #f0f9ff; border-left: 4px solid #38bdf8; }
+    .lang-block.fr { background: #fef9ee; border-left: 4px solid #fbbf24; }
+    .lang-block .lang-label { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--gray); margin-bottom: .5rem; }
+    mark.zh  { background: none; color: #0369a1; font-weight: 600; }
+    mark.key { background: none; color: var(--red); font-weight: 600; }
+
+    /* Items */
+    .item-grid { display: flex; flex-direction: column; gap: 1rem; }
+    .item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .item-head { display: flex; align-items: center; gap: .75rem; padding: .65rem 1rem; font-weight: 700; font-size: .95rem; }
+    .item-body { padding: .65rem 1rem 1rem; font-size: .9rem; display: flex; flex-direction: column; gap: .35rem; }
+    .num-badge { width: 1.7rem; height: 1.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; flex-shrink: 0; }
+    .blue   .num-badge { background: var(--blue);   color: white; }
+    .blue   .item-head { background: var(--blue-lt); color: var(--blue); }
+    .gold   .num-badge { background: var(--gold);   color: white; }
+    .gold   .item-head { background: var(--gold-lt); color: var(--gold); }
+    .purple .num-badge { background: var(--purple); color: white; }
+    .purple .item-head { background: var(--purple-lt); color: var(--purple); }
+
+    .phonetic { font-family: monospace; font-size: .85rem; color: #4b5563; background: #f3f4f6; padding: .2rem .55rem; border-radius: 5px; display: inline-block; }
+    .example  { color: var(--red); font-style: italic; }
+    .note     { color: #374151; }
+    .synonym  { color: var(--green); font-size: .85rem; }
+    .etymology { background: #fafafa; border-left: 3px solid #d1d5db; padding: .4rem .75rem; font-size: .85rem; color: #6b7280; border-radius: 0 6px 6px 0; margin-top: .2rem; }
+    .tip { background: #fefce8; border-left: 3px solid #fbbf24; padding: .4rem .75rem; font-size: .85rem; color: #78350f; border-radius: 0 6px 6px 0; margin-top: .2rem; }
+
+    /* Vocab grid (2 col) */
+    .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 580px) { .vocab-grid { grid-template-columns: 1fr; } }
+
+    /* Text review */
+    .review-section { display: flex; flex-direction: column; gap: 1rem; }
+    .review-block { border-radius: 12px; overflow: hidden; }
+    .review-block-head { padding: .6rem 1rem; font-weight: 700; font-size: .9rem; display: flex; align-items: center; gap: .5rem; }
+    .review-block-body { padding: .75rem 1rem 1rem; font-size: .88rem; display: flex; flex-direction: column; gap: .6rem; }
+
+    .step { display: flex; gap: .75rem; align-items: flex-start; }
+    .step-dot { width: 1.5rem; height: 1.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 700; flex-shrink: 0; margin-top: .1rem; }
+    .step-content { flex: 1; }
+    .step-label { font-weight: 700; font-size: .8rem; color: var(--gray); margin-bottom: .15rem; }
+    .step-fr { color: var(--red); font-style: italic; margin-bottom: .15rem; }
+    .step-note { color: #6b7280; font-size: .83rem; }
+
+    .rb-plan   .review-block-head { background: #eff6ff; color: #1d4ed8; }
+    .rb-plan   .review-block-body { background: #f8faff; }
+    .rb-plan   .step-dot { background: #1d4ed8; color: white; }
+
+    .rb-prob   .review-block-head { background: #fff7ed; color: #c2410c; }
+    .rb-prob   .review-block-body { background: #fffbf7; }
+    .rb-prob   .step-dot { background: #c2410c; color: white; }
+
+    .rb-result .review-block-head { background: var(--green-lt); color: #166534; }
+    .rb-result .review-block-body { background: #f9fffe; }
+    .rb-result .step-dot { background: #166534; color: white; }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .3rem; }
+    .chip { background: var(--blue-lt); color: var(--blue); font-size: .82rem; font-weight: 600; padding: .25rem .7rem; border-radius: 99px; border: 1px solid #bfdbfe; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <header>
+    <div class="date">2026 年 4 月 15 日 · 每日法文筆記</div>
+    <h1>今日主題：搬家中的穿搭困境</h1>
+    <span class="topic">Guinguette au bord du lac · 日常生活 · 穿搭</span>
+  </header>
+
+  <!-- Audio -->
+  <div class="audio-card">
+    <div class="audio-icon">🎧</div>
+    <div class="audio-meta">
+      <div class="audio-label">今日課文音檔 · 地道法語 003</div>
+      <div class="audio-title">地道法语003_20260415</div>
+      <audio controls>
+        <source src="地道法语003_20260415.MP3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- Bilingual Text -->
+  <div class="card">
+    <div class="card-title"><span>📖</span> 今日課文</div>
+    <div class="bilingual">
+      <div class="lang-block zh">
+        <div class="lang-label">中文</div>
+        之後我<mark class="zh">超開心的</mark>，因為我們會去一個湖邊的小餐館吃飯。那家店離蒙彼利埃只有幾分鐘路程，我真的特別喜歡。<mark class="zh">唯一的問題是</mark>，我<mark class="zh">完全不</mark>知道該穿什麼，<mark class="zh">更麻煩的是</mark>，最近<mark class="zh">我們正在搬家</mark>，所以好多衣服都不在手邊。我得看看<mark class="zh">用手頭現有的</mark>衣服能怎麼搭了。其實我在<mark class="zh">猶豫</mark>，是穿這件上衣配個小短裙還是穿那條特別好看但我其實只穿過一次的連衣裙。我還是穿這條只穿過一次的漂亮連衣裙吧。雖然有點<mark class="zh">皺</mark>，但<mark class="zh">我覺得應該還行</mark>。<mark class="zh">反正，我只能將就一下了</mark>。
+      </div>
+      <div class="lang-block fr">
+        <div class="lang-label">Français</div>
+        Après ça je suis <mark class="key">trop contente</mark> parce qu'on va aller manger <mark class="key">au bord d'un lac</mark> une petite guinguette qui est à quelques minutes de Montpellier et que vraiment j'adore. <mark class="key">Le seul problème c'est que</mark> je sais <mark class="key">pas du tout</mark> comment <mark class="key">m'habiller</mark>, <mark class="key">d'autant plus que</mark> en ce moment on est <mark class="key">en train de déménager</mark> avec Clément et donc j'ai pas toutes mes affaires avec moi. Je vais voir <mark class="key">ce que</mark> je peux faire avec ce que j'ai <mark class="key">pour le coup</mark>. En fait <mark class="key">j'hésite</mark> soit à mettre ce haut avec une petite jupe, soit cette robe trop belle que j'ai portée qu'une fois en fait. Du coup je suis parti sur la robe. Elle est un petit peu <mark class="key">froissée</mark> mais bon, <mark class="key">je crois que ça passe</mark>. <mark class="key">De toute façon, je vais faire avec.</mark>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grammar -->
+  <div class="card">
+    <div class="card-title"><span>📐</span> 核心語法點</div>
+    <div class="item-grid">
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">1</span>
+          並列關係從句 — <code>qui</code>（主語）＋ <code>que</code>（賓語）
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ki ɛ] &nbsp;&nbsp; [kə ʒadɔʁ]</span>
+          <span class="note">兩個關係從句由 <em>et</em> 連接，共同修飾同一先行詞 <em style="color:var(--red)">une petite guinguette</em>。<br>① <em>qui est…</em> → qui 是動詞 est 的<strong>主語</strong><br>② <em>que j'adore</em> → que 是動詞 adore 的<strong>直接賓語</strong></span>
+          <span class="example">J'ai un ami qui habite à Paris et que je vois souvent.（我有個朋友，他住在巴黎，而且我常見到他。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">2</span>
+          口語否定式 — 省略 <code>ne</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[ʒə sɛ pa]</span>
+          <span class="note">書面規範：<em>ne + 動詞 + pas</em>。口語中幾乎都省略 <em>ne</em>，只留 <em>pas</em>。文中 <em style="color:var(--red)">je sais pas</em>、<em style="color:var(--red)">j'ai pas</em> 都是典型用法，是區別書面與口語的核心標誌。</span>
+          <span class="example">– Tu viens ? – Non, je peux pas.（－你來嗎？－不，我來不了。）</span>
+          <div class="tip">📝 書面寫作仍須保留 ne，口語聽力時要習慣沒有 ne 的否定句。</div>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">3</span>
+          複合關係代詞 <code>ce que</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[sə kə]</span>
+          <span class="note">可理解為「……的東西／事情」，相當於英語的 "what"。在從句中充當直接賓語。原文 <em style="color:var(--red)">voir ce que je peux faire</em> 意思是「看看我能做什麼（能搭什麼）」。</span>
+          <span class="example">Dis-moi ce que tu penses.（告訴我你在想什麼。）</span>
+        </div>
+      </div>
+
+      <div class="item blue">
+        <div class="item-head">
+          <span class="num-badge">4</span>
+          自反動詞 <code>Verbes pronominaux</code>
+        </div>
+        <div class="item-body">
+          <span class="phonetic">[mabije] &nbsp;（m'habiller）</span>
+          <span class="note">動作作用於主語自身，結構為：<strong>自反代詞（me/te/se…）＋ 動詞</strong>。原文 <em style="color:var(--red)">comment m'habiller</em>（如何給自己穿衣服）中，habiller 加上 me 後變成 <em>s'habiller</em>（自己給自己穿衣）。</span>
+          <span class="example">Je me lève à 7 heures tous les matins.（我每天早上 7 點起床。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Phrases -->
+  <div class="card">
+    <div class="card-title"><span>💬</span> 短語積累</div>
+    <div class="item-grid">
+
+      <div class="item gold">
+        <div class="item-head"><span class="num-badge">1</span> Le seul problème c'est que...</div>
+        <div class="item-body">
+          <span class="phonetic">[lə sœl pʁɔblɛm sɛ kə]</span>
+          <span class="note">固定口語句型，引出當前狀況的主要問題，意為「唯一的問題是……」。</span>
+          <span class="example">La voiture est très confortable, le seul problème c'est qu'elle consomme beaucoup d'essence.（這輛車很舒適，唯一的問題是它很耗油。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head"><span class="num-badge">2</span> pas du tout</div>
+        <div class="item-body">
+          <span class="phonetic">[pa dy tu]</span>
+          <span class="note">完全否定的強調形式，比 <em>ne…pas</em> 語氣強得多，意為「完全不、一點兒也不」。也可單獨作回答。</span>
+          <span class="example">– Tu es fatigué ? – Non, pas du tout.（－你累了嗎？－不，一點也不。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head"><span class="num-badge">3</span> d'autant plus que...</div>
+        <div class="item-body">
+          <span class="phonetic">[dɔtɑ̃ plys kə]</span>
+          <span class="note">遞進連接詞，引出更強的附加理由，意為「更何況、尤其是因為」。比 <em>parce que</em> 更有邏輯遞進感。</span>
+          <span class="example">Il est difficile de se concentrer, d'autant plus qu'il y a beaucoup de bruit.（很難集中注意力，更何況噪音這麼大。）</span>
+        </div>
+      </div>
+
+      <div class="item gold">
+        <div class="item-head"><span class="num-badge">4</span> être en train de + 動詞原形</div>
+        <div class="item-body">
+          <span class="phonetic">[ɛtʁ ɑ̃ tʁɛ̃ də]</span>
+          <span class="note">法語中表示「正在做某事」，相當於英語進行時。</span>
+          <span class="example">Attends une minute, je suis en train de finir un email.（等一下，我正在寫完一封郵件。）</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Vocabulary -->
+  <div class="card">
+    <div class="card-title"><span>📚</span> 詞彙深挖</div>
+    <div class="vocab-grid">
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">1</span> contente &nbsp;<span style="font-weight:400;font-size:.82rem">adj. 高興的</span></div>
+        <div class="item-body">
+          <span class="phonetic">[kɔ̃tɑ̃t]</span>
+          <span class="synonym">近義詞：heureuse · ravie</span>
+          <span class="example">Les enfants sont contents de leurs nouveaux jouets.（孩子們對新玩具很滿意。）</span>
+          <div class="etymology">詞根來自拉丁語 <em>contentus</em>（被包含的、滿足的）。想像一個杯子裡面裝滿了水——東西被完美地「包含」，因此處於「滿足」的狀態。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">2</span> bord &nbsp;<span style="font-weight:400;font-size:.82rem">n.m. 邊緣、岸邊</span></div>
+        <div class="item-body">
+          <span class="phonetic">[bɔʁ]</span>
+          <span class="synonym">近義詞：rive · côté</span>
+          <span class="example">Nous avons pique-niqué au bord de la rivière.（我們在河邊野餐了。）</span>
+          <div class="etymology">源自古日耳曼語 <em>bord</em>（木板，尤指船的側舷）。英語的 <em>border</em> 和它系出同源，都保留了「邊緣」的核心概念。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">3</span> guinguette &nbsp;<span style="font-weight:400;font-size:.82rem">n.f. 露天小餐館</span></div>
+        <div class="item-body">
+          <span class="phonetic">[ɡɛ̃ɡɛt]</span>
+          <span class="synonym">近義詞：restaurant de plein air · cabaret</span>
+          <span class="example">Le dimanche, les Parisiens aiment aller danser dans les guinguettes au bord de la Marne.（週日，巴黎人喜歡去馬恩河邊的露天舞廳跳舞。）</span>
+          <div class="etymology">名字來源於維史時代廉價且帶麻味的白葡萄酒 <em>guinguet</em>，充滿「平民的、歡樂的、戶外的」文化基因。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">4</span> froissé &nbsp;<span style="font-weight:400;font-size:.82rem">adj. 皺的／受冒犯的</span></div>
+        <div class="item-body">
+          <span class="phonetic">[fʁwase]</span>
+          <span class="synonym">近義詞：chiffonné</span>
+          <span class="example">Après le long voyage, tous mes vêtements étaient froissés.（長途旅行後，我所有的衣服都皺了。）</span>
+          <div class="etymology">兩個核心意思——物理上的「弄皺」和情感上的「受冒犯」——其實共享一個概念：<strong>破壞原有的平滑與完整狀態</strong>。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">5</span> seul &nbsp;<span style="font-weight:400;font-size:.82rem">adj. 唯一的、單獨的</span></div>
+        <div class="item-body">
+          <span class="phonetic">[sœl]</span>
+          <span class="synonym">近義詞：unique · solitaire</span>
+          <span class="example">C'est la seule solution que nous avons.（這是我們唯一的解決辦法。）</span>
+          <div class="etymology">詞根來自拉丁語 <em>solus</em>（單獨、唯一）。同族英語詞：<em>sole / solitude / solo / solitary</em>，都共享「唯一」這個核心。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">6</span> déménager &nbsp;<span style="font-weight:400;font-size:.82rem">v. 搬家</span></div>
+        <div class="item-body">
+          <span class="phonetic">[demenɑʒe]</span>
+          <span class="synonym">近義詞：changer de domicile</span>
+          <span class="example">Nous allons déménager à Lyon l'année prochaine.（我們明年要搬去里昂。）</span>
+          <div class="etymology"><em>dé-</em>（去除）＋ <em>ménage</em>（家務、家庭）= 脫離原本的家庭所在地，即「搬家」。理解了這個邏輯，這個詞就很難忘了。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">7</span> affaires &nbsp;<span style="font-weight:400;font-size:.82rem">n.f.pl. 東西、事務</span></div>
+        <div class="item-body">
+          <span class="phonetic">[afɛʁ]</span>
+          <span class="synonym">近義詞：choses · effets personnels</span>
+          <span class="example">J'ai mis toutes mes affaires dans une grande valise.（我把我所有的東西放進了一個大行李箱。）</span>
+          <div class="etymology">源於古法語 <em>à faire</em>（要去做的事）。忙碌商人需要帶著各種文件和工具，這些賴以工作的「東西」也就自然地成了他的 <em>affaires</em>。</div>
+        </div>
+      </div>
+
+      <div class="item purple">
+        <div class="item-head"><span class="num-badge">8</span> hésiter &nbsp;<span style="font-weight:400;font-size:.82rem">v. 猶豫</span></div>
+        <div class="item-body">
+          <span class="phonetic">[ezite]</span>
+          <span style="color:#e57373;font-size:.82rem">⚠️ 詞首 h 不發音</span>
+          <span class="synonym">近義詞：douter</span>
+          <span class="example">J'hésite entre la robe rouge et la robe bleue.（我在紅裙子和藍裙子之間猶豫不決。）</span>
+          <div class="etymology">來自拉丁語 <em>haesitare</em>（卡住、黏住）——想像一個人走路時腳陷進了泥裡，被「黏住了」，進退兩難。英語的 <em>hesitate</em> 幾乎一模一樣。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Text Review -->
+  <div class="card">
+    <div class="card-title"><span>🗺️</span> 文本結構回顧</div>
+    <div class="review-section">
+
+      <div class="review-block rb-plan">
+        <div class="review-block-head">🗓️ 描述「計劃與心情」— 這是對話的開場白，先說感受，再說計劃</div>
+        <div class="review-block-body">
+          <div class="step">
+            <div class="step-dot">1</div>
+            <div class="step-content">
+              <div class="step-label">表達心情</div>
+              <div class="step-fr">Je suis trop + [形容詞]</div>
+              <div class="step-note"><em>trop</em> 是口語中表達強烈情緒的關鍵詞，比 <em>très</em> 更地道、更常用。→ <em style="color:var(--red)">Je suis trop contente.</em>（我太開心了。）</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">2</div>
+            <div class="step-content">
+              <div class="step-label">描述計劃</div>
+              <div class="step-fr">On va + [動詞原形]</div>
+              <div class="step-note">口語中表達「我們準備去做某事」的萬能公式（futur proche）。→ <em style="color:var(--red)">...on va aller manger.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-block rb-prob">
+        <div class="review-block-head">⚠️ 說明「問題與原因」— 計劃雖好，但總有現實問題，承上啟下的轉折</div>
+        <div class="review-block-body">
+          <div class="step">
+            <div class="step-dot">1</div>
+            <div class="step-content">
+              <div class="step-label">引出問題</div>
+              <div class="step-fr">Le seul problème, c'est que...</div>
+              <div class="step-note">固定句型，非常實用。→ <em style="color:var(--red)">Le seul problème, c'est que je sais pas du tout comment m'habiller.</em></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">2</div>
+            <div class="step-content">
+              <div class="step-label">補充原因</div>
+              <div class="step-fr">d'autant plus que...</div>
+              <div class="step-note">「更何況/尤其是因為」，引出更深一層的原因，比 <em>parce que</em> 更有邏輯遞進感。→ <em style="color:var(--red)">...d'autant plus que en ce moment on est en train de déménager.</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-block rb-result">
+        <div class="review-block-head">✅ 展現「結果」— 實際決定 ＋ 態度</div>
+        <div class="review-block-body">
+          <div class="step">
+            <div class="step-dot">1</div>
+            <div class="step-content">
+              <div class="step-label">做決定（猶豫過程）</div>
+              <div class="step-fr">j'hésite soit à... soit...</div>
+              <div class="step-note">猶豫不決的標準表達。→ <em style="color:var(--red)">En fait j'hésite soit à mettre ce haut avec une petite jupe, soit cette robe...</em></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">2</div>
+            <div class="step-content">
+              <div class="step-label">接受現實</div>
+              <div class="step-fr">je crois que ça passe.</div>
+              <div class="step-note">輕描淡寫化解尷尬的萬能句——「我覺得應該還行」。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-dot">3</div>
+            <div class="step-content">
+              <div class="step-label">最終態度</div>
+              <div class="step-fr">De toute façon, je vais faire avec.</div>
+              <div class="step-note">「反正，我就將就了。」接受並繼續——法語口語中超實用的人生態度句型。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Quick ref -->
+  <div class="card">
+    <div class="card-title"><span>⚡</span> 今日關鍵詞速查</div>
+    <div class="chips">
+      <span class="chip">qui / que 並列從句</span>
+      <span class="chip">口語省略 ne</span>
+      <span class="chip">ce que</span>
+      <span class="chip">s'habiller（自反動詞）</span>
+      <span class="chip">Le seul problème c'est que</span>
+      <span class="chip">pas du tout</span>
+      <span class="chip">d'autant plus que</span>
+      <span class="chip">être en train de</span>
+      <span class="chip">guinguette</span>
+      <span class="chip">froissé</span>
+      <span class="chip">déménager</span>
+      <span class="chip">hésiter</span>
+      <span class="chip">De toute façon, je vais faire avec.</span>
+      <span class="chip">je crois que ça passe.</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
